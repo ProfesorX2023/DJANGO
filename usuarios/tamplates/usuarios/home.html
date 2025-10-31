@@ -1,0 +1,16 @@
+{% extends 'usuarios/base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+    <h1>¡Bienvenido!</h1>
+    <div class="user-info">
+        <p><strong>Usuario:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Nombre:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+    </div>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="logout-btn">Cerrar Sesión</button>
+    </form>
+{% endblock %}
